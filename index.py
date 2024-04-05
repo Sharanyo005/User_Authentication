@@ -49,5 +49,4 @@ Sign up / Log in [S/L]: ''')
         pswd = input("Password: ")
         s(1)
         logIn(uname,pswd)
-        break
-        
+        break 
