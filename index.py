@@ -51,4 +51,3 @@ Sign up / Log in [S/L]: ''')
         logIn(uname,pswd)
         break
         
-print("Hello world")
