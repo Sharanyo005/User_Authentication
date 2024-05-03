@@ -1,4 +1,5 @@
 from time import sleep as s
+import uuid
 def signUp(username, password):
     a = open('database.txt', 'a')
     a.close()
@@ -17,9 +18,13 @@ def signUp(username, password):
 def logIn(username, password):
     with open('database.txt', 'r') as f:
         txt = f.readlines()
+    db = {}
+    for i in range(len(txt)):
+        db[txt[i].split()[0].split(',')[0]] = uuid.uuid5(uuid.NAMESPACE_OID, txt[i].split()[0].split(',')[0])
     if f"{username},{password}\n" in txt:
         print("Correct!") 
-        id = txt.index(f"{username},{password}\n")
+        # id = txt.index(f"{username},{password}\n")
+        id = db[f"{username}"]
         print(f'Your id is:{id}')
         print("Processing...")
         s(1)
