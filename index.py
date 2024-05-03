@@ -1,5 +1,7 @@
 from time import sleep as s
 def signUp(username, password):
+    a = open('database.txt', 'a')
+    a.close()
     with open('database.txt', 'r') as f:
         txt = f.readlines()   
     if f"{username},{password}\n" in txt:
