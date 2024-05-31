@@ -12,7 +12,7 @@ To run this prject, run the following command
 ```
 
 
-## Contributing
+## Contribution
 
 Contributions are always welcome!
 Any contributors with SQL knowledge, who can convert the txt database to SQL db, are preferred. 
