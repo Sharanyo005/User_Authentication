@@ -14,7 +14,8 @@ def signUp(username, password):
         s(1)
         with open("database.txt", 'a') as f:
             f.write(f'{username},{password}\n')
-        print("You have Successfully Signed Up!")
+        print("You have Successfully Signed Up!\n Log in to get your id")
+    
 def logIn(username, password):
     with open('database.txt', 'r') as f:
         txt = f.readlines()
@@ -46,7 +47,15 @@ Sign up / Log in [S/L]: ''')
         s(1)
         pswd = input("Password: ")
         signUp(uname, pswd)
-        break
+        with open('database.txt', 'r') as f:
+            txt = f.readlines()  
+            break
+        db = {}
+        for i in range(len(txt)):
+            db[txt[i].split()[0].split(',')[0]] = uuid.uuid5(uuid.NAMESPACE_OID, txt[i].split()[0].split(',')[0])
+
+        id = db[f"{username}"]
+        print(f'Your id is:{id}')
     elif choice.upper() == 'L': 
         print('''
                 LOG IN      
